@@ -1,6 +1,5 @@
 package com.example.mybooks.book;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -15,14 +14,18 @@ public class Book {
     @GeneratedValue
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String author;
 
     @Type(type = "true_false")
+    @Column(nullable = false)
     private boolean read;
 
     @Basic
-    @Column(name = "acquisition_date")
+    @Column(name = "acquisition_date", nullable = false)
     private LocalDate acquisitionDate;
 
     @Basic
